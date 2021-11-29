@@ -1,0 +1,30 @@
+@import "../styles/variables/variables";
+@import "../styles/mixins/util";
+@import "../styles/extends/resets";
+
+.header {
+  background: $dark-element-color;
+  color: $dark-text-color;
+
+  height: 5vh;
+
+  font-size: $ff-size;
+
+  @include flex($justify: space-between);
+
+  padding: 2em;
+
+  .dark-mode-container {
+    @include flex();
+
+    .btn-dark-mode {
+      @extend %button;
+
+      .dark-mode-icon {
+        font-size: 1.2em;
+        margin-right: 0.8em;
+        color: $dark-text-color;
+      }
+    }
+  }
+}
