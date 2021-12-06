@@ -1,0 +1,2 @@
+GET https://restcountries.com/v3.1/region/Europe?fields=name,population,capital,region,flags
+

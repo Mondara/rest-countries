@@ -12,7 +12,7 @@
 
   @include flex($justify: space-between);
 
-  padding: 2em;
+  padding: 0 2em;
 
   .dark-mode-container {
     @include flex();
