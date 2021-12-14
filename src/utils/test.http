@@ -1,0 +1,2 @@
+GET https://restcountries.com/v2/alpha/FRA?fields=name
+

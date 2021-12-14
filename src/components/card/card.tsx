@@ -21,9 +21,9 @@ const Card: React.FC<Props> = ({
       <img src={flags} />
       <div className="card-info">
         <h3 className="card-info-title">{name}</h3>
-        <div className="card-info-population"><strong>Population:</strong> {population}</div>
-        <div className="card-info-region"><strong>Region:</strong> {region}</div>
-        <div className="card-info-capital"><strong>Capital:</strong> {capital}</div>
+        <div className="card-info-population"><span>Population:</span> {new Intl.NumberFormat().format(population)}</div>
+        <div className="card-info-region"><span>Region:</span> {region}</div>
+        <div className="card-info-capital"><span>Capital:</span> {capital}</div>
       </div>
     </div>
   );
