@@ -6,86 +6,88 @@ import SearchBar from "../../components/search-bar/search-bar";
 import Dropdown from "../../components/dropdown/dropdown";
 import Card from "../../components/card/card";
 
+import { Country } from "../../Interfaces/Interfaces";
+
+
+const URL_BASE = 'https://restcountries.com/v2';
+const URL_FIELDS = 'name,population,region,capital,flags';
+
 function App() {
   const [input, setInput] = useState("");
   const [region, setRegion] = useState("ALL");
   const [isListOpen, setisListOpen] = useState(false);
-  const [countries, setCountries] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const [countries, setCountries] = useState<Country[]>([]);
 
   const regions = ["ALL", "Africa", "Americas", "Asia", "Europe", "Oceania"];
 
   const filteredCountries = countries.filter((country) =>
-    country.name.common.toLowerCase().includes(input.toLowerCase()) ||
-    country.name.official.toLowerCase().includes(input.toLowerCase())
+    country.name.toLowerCase().includes(input.toLowerCase())
   );
 
   useEffect(() => {
     if (region !== "ALL") {
-      fetchCountries(
-        `https://restcountries.com/v3.1/region/${region}?fields=name,population,region,capital,flags`
-      );
+      getCountries(`${URL_BASE}/${region}?fields=${URL_FIELDS}`);
     } else {
-      fetchCountries(
-        "https://restcountries.com/v3.1/all?fields=name,population,region,capital,flags"
-      );
+      getCountries(`${URL_BASE}/all?fields=${URL_FIELDS}`);
     }
   }, [region]);
 
-  const fetchCountries = async (endpoint: string) => {
-    fetch(endpoint)
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        setCountries(data.sort((a, b) => a.name.common > b.name.common));
-      });
-  };
+  async function getCountries(URL: string) {
+    fetch(URL)
+      .then(response => response.json())
+      .then(data => setCountries(data.sort((a, b) => a.name > b.name)))
+      .catch(error => console.log('Error fetching country data: ', error))
+      .finally(() => setLoading(false))
+  }
 
-  const updateInput = (input: string) => {
-    setInput(input);
-    console.log(input);
-  };
+  const updateInput = (input: string) => setInput(input);
+
+  const toggleOpen = () => setisListOpen((prev: boolean) => !prev);
 
   const updateRegion = (id: number) => {
     setRegion(regions[id]);
     setisListOpen(false);
-
-    console.log(region);
   };
 
-  const toggleOpen = () => {
-    setisListOpen((prev: boolean) => !prev);
-  };
 
   return (
+
     <div className="App">
-      <main>
-        <div className="user-inputs">
-          <SearchBar input={input} onChange={updateInput} />
-          <Dropdown
-            title="Filter by Region"
-            list={regions}
-            selected={region}
-            select={updateRegion}
-            open={isListOpen}
-            toggleOpen={toggleOpen}
-          />
-        </div>
-        <div className="cards-container">
-          {filteredCountries.map((country) => (
-            <Link to={`/Country/${country.name.common}`} key={country.name.common}>
-              <Card
-                key={country.name.common}
-                name={country.name.common}
-                population={country.population}
-                region={country.region}
-                capital={country.capital}
-                flags={country.flags.svg}
-              />
-            </Link>
-          ))}
-        </div>
-      </main>
+
+      {loading ? <h1>Loading...</h1> :
+        <main>
+          <div className="user-inputs">
+            <SearchBar input={input} onChange={updateInput} />
+            <Dropdown
+              title="Filter by Region"
+              list={regions}
+              selected={region}
+              select={updateRegion}
+              open={isListOpen}
+              toggleOpen={toggleOpen}
+            />
+          </div>
+          <div className="cards-container">
+            {filteredCountries.map((country) => (
+              <Link to={`/Country/${country.name}`} key={country.name}>
+                <Card
+                  key={country.name}
+                  name={country.name}
+                  population={country.population}
+                  region={country.region}
+                  capital={country.capital}
+                  flags={country.flags.svg}
+                />
+              </Link>
+            ))}
+          </div>
+        </main>
+      }
+      
     </div>
+
   );
 }
 

@@ -1,2 +1,3 @@
-GET https://restcountries.com/v2/alpha/FRA?fields=name
+GET https://restcountries.com/v2/region/Europe?fields=name,population,region,capital,flags
+
 

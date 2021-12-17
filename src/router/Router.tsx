@@ -7,10 +7,11 @@ import Country from '../pages/Country/country';
 export default function MainRouter() {
     return (
         <BrowserRouter>
-            <Header />
             <Routes>
-                <Route path="/" element={<Homepage />} />
-                <Route path="Country/:countryId" element={<Country />} />
+                <Route path="/" element={<Header />}>
+                    <Route index element={<Homepage />} />
+                    <Route path="Country/:countryId" element={<Country />} />
+                </Route>
             </Routes>
         </BrowserRouter>
     );
