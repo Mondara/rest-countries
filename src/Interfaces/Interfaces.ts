@@ -38,3 +38,7 @@ export interface Country {
   population: number;
   flags: Flags;
 }
+
+export interface BorderNameChace {
+  [key: string]: string;
+}
