@@ -28,7 +28,7 @@ function App() {
 
   useEffect(() => {
     if (region !== "ALL") {
-      getCountries(`${URL_BASE}/${region}?fields=${URL_FIELDS}`);
+      getCountries(`${URL_BASE}/region/${region}?fields=${URL_FIELDS}`);
     } else {
       getCountries(`${URL_BASE}/all?fields=${URL_FIELDS}`);
     }
@@ -54,7 +54,7 @@ function App() {
 
   return (
 
-    <div className="App">
+    <div className="homepage-container">
 
       {loading ? <h1>Loading...</h1> :
         <main>

@@ -7,10 +7,7 @@
   height: 100vh;
 
   padding: 2em;
-
-  background: $dark-bg-color;
-  color: $dark-text-color;
-
+  
   .btn-goBack {
     display: flex;
     align-items: center;
@@ -88,10 +85,5 @@
 
 .btn {
   @extend %button;
-
-  background-color: $dark-element-color;
-  box-shadow: 0px 0px 5px $dark-element-color;
-  color: $dark-text-color;
-
   padding: 1em 0.8em;
 }

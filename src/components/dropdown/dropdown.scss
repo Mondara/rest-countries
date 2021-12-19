@@ -4,27 +4,19 @@
 
 .dd-wrapper {
     display: inline-block;
-    background: $dark-element-color;
-    color: $dark-text-color;
 
     min-width: 200px;
     position: relative;
 
     button {
         @extend %button;
-        color: inherit;
     }
 
     .dd-header {
         @include flex($justify: space-between);
         padding: 1.2em 1.6em;
         width: 100%;
-
-        .dd-header-title {
-            // margin-right: 5em;
-        }
     }
-
     
     .dd-list {
         @include flex($direction: column);
@@ -34,16 +26,12 @@
         left: 0;
         right: 0;
 
-        background: $dark-element-color;
+        background: inherit;
 
         .dd-list-item {
             width: 100%;
             padding: 1.2em 1.6em;
             text-align: left;
-
-            &:hover {
-                background-color: $dark-element-hover-color;
-            }
         }
     }
 }

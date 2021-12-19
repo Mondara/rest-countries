@@ -1,3 +1,4 @@
-GET https://restcountries.com/v2/name/afghanistan
+GET https://restcountries.com/v2/region/europe
+
 
 

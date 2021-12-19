@@ -1,0 +1,83 @@
+@import "./variables/variables";
+
+.theme--dark {
+  .header {
+    background: $dark-element;
+    color: $dark-text;
+  }
+
+  .homepage-container main {
+    background-color: $dark-bg;
+    color: $dark-text;
+
+    .searchbar-container,
+    .dd-wrapper {
+      background-color: $dark-element;
+      box-shadow: 0px 0px 50px $dark-element;
+      color: $dark-text;
+    }
+
+    .dd-wrapper .dd-list-item {
+      &:hover {
+        background-color: $dark-element-hover;
+      }
+    }
+
+    .card {
+      background-color: $dark-element;
+      color: $dark-text;
+    }
+  }
+
+  .page--container {
+    background-color: $dark-bg;
+    color: $dark-text;
+
+    .btn {
+      background-color: $dark-element;
+      box-shadow: 0px 0px 5px $dark-element;
+      color: $dark-text;
+    }
+  }
+}
+
+.theme--light {
+  .header {
+    background: $light-element;
+    color: $light-text;
+  }
+
+  .homepage-container main {
+    background-color: $light-bg;
+    color: $light-text;
+
+    .searchbar-container,
+    .dd-wrapper {
+      background-color: $light-element;
+      box-shadow: 0px 0px 50px $light-element;
+      color: $light-text;
+    }
+
+    .dd-wrapper .dd-list-item {
+      &:hover {
+        background-color: $light-element-hover;
+      }
+    }
+
+    .card {
+      background-color: $light-element;
+      color: $light-text;
+    }
+  }
+
+  .page--container {
+    background-color: $light-bg;
+    color: $light-text;
+
+    .btn {
+      background-color: $light-element;
+      box-shadow: 0px 0px 5px $light-element;
+      color: $light-text;
+    }
+  }
+}

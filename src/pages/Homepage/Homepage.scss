@@ -1,12 +1,11 @@
 @import '../../styles/variables/variables';
 @import '../../styles/mixins/util';
 
-.App {
+.homepage-container {
     width: 100%;
     height: 100vh;
 
     main {
-        background: $dark-bg-color;
         width: 100%;
         min-height: 100%;
 

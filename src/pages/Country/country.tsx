@@ -32,12 +32,10 @@ export default function Country() {
             .then(data => {
                 setCountry(data[0]);
                 getBorders(data[0].borders);
-
-                // console.log(data[0].currencies);
             })
             .catch(error => console.log('Error fetching country data: ', error))
             .finally(() => {
-                setLoading(false)
+                setLoading(false);
             })
     }
 
