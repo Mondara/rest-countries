@@ -12,7 +12,7 @@ interface Props {
   toggleOpen: () => void;
 }
 
-const Dropdown: React.FC<Props> = ({
+export const Dropdown: React.FC<Props> = ({
   title,
   list,
   selected,
@@ -43,5 +43,3 @@ const Dropdown: React.FC<Props> = ({
     </div>
   );
 };
-
-export default Dropdown;

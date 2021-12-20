@@ -1,68 +1,36 @@
-import { useState, useEffect } from 'react';
+import React from 'react';
+import { FaArrowLeft } from 'react-icons/fa';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import { Language, ResultCountryByName } from '../../Interfaces/Interfaces'
-import './country.scss';
+import './Country.scss';
 
-import { FaArrowLeft } from 'react-icons/fa'
-
-const URL_BASE = 'https://restcountries.com/v2';
-const URL_FIELDS = 'name,nativeName,population,capital,region,subregion,flags,currencies,languages,topLevelDomain,borders'
+import { Errorpage } from '../../components';
+import { Language, Currency } from '../../Interfaces';
+import { getCountry } from '../../utils/useFetch'
 
 
-export default function Country() {
+
+export function Country() {
     const { countryId } = useParams();
     const navigate = useNavigate();
 
-    const [country, setCountry] = useState<ResultCountryByName>(null);
-    const [borderCountries, setBorderCountries] = useState<string[] | []>([])
+    if(!countryId) return;
 
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-
-        setBorderCountries([]);
-        getCountry();
-
-    }, [countryId])
-
-
-    async function getCountry() {
-        fetch(`${URL_BASE}/name/${countryId}?fields=${URL_FIELDS}`)
-            .then(response => response.json())
-            .then(data => {
-                setCountry(data[0]);
-                getBorders(data[0].borders);
-            })
-            .catch(error => console.log('Error fetching country data: ', error))
-            .finally(() => {
-                setLoading(false);
-            })
-    }
-
-    async function getBorders(borders: string[]) {
-        if (!borders) return;
-        borders.forEach(border => {
-            fetch(`${URL_BASE}/alpha/${border}?fields=name`)
-                .then(response => response.json())
-                .then((data: { name: string }) => setBorderCountries(prev => [...prev, data.name]))
-        })
-
-    }
+    const { country, borders, loading, error } = getCountry(countryId);
 
     function getLanguages(languages: Language[]) {
         return languages.map(language => language.name).join(', ');
     }
 
-    function getCurrencies(currencies: Currencies[]) {
+    function getCurrencies(currencies: Currency[]) {
         return currencies.map(currency => `${currency.name} ( ${currency.symbol} )`).join(', ');
     }
 
     if (loading) return <h1>Loading...</h1>
-    if (!country) return <h1>No Data</h1>
+    if (!country) return <Errorpage error="No Data..." />
 
     return (
         <div className="page--container">
-            <button class="btn btn-goBack" onClick={() => navigate(-1)}><FaArrowLeft /> <span>Go Back</span></button>
+            <button className="btn btn-goBack" onClick={() => navigate(-1)}><FaArrowLeft /> <span>Go Back</span></button>
             <div className="country_page--container">
                 <div className="img--container">
                     <img src={country.flags.svg} alt={`${countryId} Flag`} />
@@ -89,11 +57,13 @@ export default function Country() {
 
                     <div className="country_page-info-borders">
                         <h6>Border Countries: </h6>
-                        {borderCountries.map((country, indx) => (
+                        {borders.length === 0 && <button className="btn btn-border btn-nan">None</button>}
+                        {borders.length > 0 && borders.map((country: string, indx) => (
                             <Link to={`/Country/${country}`} key={country}>
                                 <button className="btn btn-border">{country}</button>
                             </Link>
-                        ))}
+                        ))
+                        }
                     </div>
                 </div>
             </div>

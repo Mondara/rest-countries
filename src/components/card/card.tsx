@@ -9,7 +9,7 @@ interface Props {
   flags: string;
 }
 
-const Card: React.FC<Props> = ({
+export const Card: React.FC<Props> = ({
   name,
   region,
   capital,
@@ -29,4 +29,4 @@ const Card: React.FC<Props> = ({
   );
 };
 
-export default Card;
+// export Card;

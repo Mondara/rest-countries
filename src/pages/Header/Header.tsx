@@ -3,10 +3,10 @@ import { Outlet, Link } from "react-router-dom";
 import { FaMoon } from "react-icons/fa";
 
 import ThemeContext from "../../theme/ThemeContext";
-import "./header.scss";
+import "./Header.scss";
 
 
-const Header = () => {
+export const Header = () => {
   const { theme, setTheme } = useContext(ThemeContext)
 
   const handleThemeChange = () => {
@@ -36,5 +36,3 @@ const Header = () => {
     </>
   );
 };
-
-export default Header;

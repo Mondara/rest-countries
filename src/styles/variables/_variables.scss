@@ -3,15 +3,21 @@
 // Dark Theme
 $dark-bg: hsl(207, 26%, 17%);
 $dark-element: hsl(209, 23%, 22%);
-$dark-element-hover: hsl(209, 23%, 40%);
 $dark-text: hsl(0, 0%, 100%);
+
+$dark-element-hover: hsl(209, 23%, 40%);
+$dark-skeleton-background: hsl(0, 0%, 27%);
+$dark-skeleton-element: hsl(0, 0%, 47%);
 
 
 // Light Theme
 $light-bg: hsl(0, 0%, 98%);
 $light-element: hsl(0, 0%, 100%);
-$light-element-hover: hsl(0, 0%, 82%);
 $light-text: hsl(200, 15%, 8%);
+
+$light-element-hover: hsl(0, 0%, 82%);
+$light-skeleton-background: hsl(0, 0%, 95%);
+$light-skeleton-element: hsl(0, 0%, 87%);
 
 // Home Page
 $ff-size: 14px;

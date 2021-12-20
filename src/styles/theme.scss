@@ -39,6 +39,19 @@
       color: $dark-text;
     }
   }
+
+  .error-page {
+    background-color: $dark-bg;
+    color: $dark-text;
+  }
+
+  .skeleton-card-wrapper {
+    background-color: $dark-skeleton-background;
+    .skeleton-card-img,
+    .skeleton-card-text {
+      background-color: $dark-skeleton-element;
+    }
+  }
 }
 
 .theme--light {
@@ -78,6 +91,19 @@
       background-color: $light-element;
       box-shadow: 0px 0px 5px $light-element;
       color: $light-text;
+    }
+  }
+
+  .error-page {
+    background-color: $light-bg;
+    color: $light-text;
+  }
+
+  .skeleton-card-wrapper {
+    background-color: $light-skeleton-background;
+    .skeleton-card-img,
+    .skeleton-card-text {
+      background-color: $light-skeleton-element;
     }
   }
 }

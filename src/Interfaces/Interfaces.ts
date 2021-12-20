@@ -42,3 +42,7 @@ export interface Country {
 export interface BorderNameChace {
   [key: string]: string;
 }
+
+export interface Border {
+  name: string;
+}

@@ -8,7 +8,7 @@ interface Props {
     onChange: (value: string) => void;
 }
 
-const SearchBar: React.FC<Props> = ({input, onChange}) => {
+export const SearchBar: React.FC<Props> = ({input, onChange}) => {
   return (
     <div className="searchbar-container">
       <FaSearch className="searchbar-icon" />
@@ -23,5 +23,3 @@ const SearchBar: React.FC<Props> = ({input, onChange}) => {
     </div>
   );
 };
-
-export default SearchBar;
