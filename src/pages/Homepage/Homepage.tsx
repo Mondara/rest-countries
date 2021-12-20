@@ -2,35 +2,21 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Homepage.scss";
 
-import { useFetch } from '../../utils/useFetch';
-import { Card, Dropdown, SearchBar, SkeletonCard } from '../../components';
-
-
-const URL_BASE = 'https://restcountries.com/v2';
-const URL_FIELDS = 'name,population,region,capital,flags';
+import { getCountry } from '../../utils/fetch';
+import { Card, Dropdown, SearchBar, SkeletonCard, Errorpage } from '../../components';
 
 export const Homepage = () => {
   const [input, setInput] = useState("");
   const [region, setRegion] = useState("ALL");
   const [isListOpen, setisListOpen] = useState(false);
 
-  const [url, setUrl] = useState('')
-
   const regions = ["ALL", "Africa", "Americas", "Asia", "Europe", "Oceania"];
 
-  const { loading, error, data } = useFetch(url);
+  const { loading, error, data } = getCountry(region);
 
   const filteredCountries = data.filter((country) =>
     country.name.toLowerCase().includes(input.toLowerCase())
   );
-
-  useEffect(() => {
-    if (region !== "ALL") {
-      setUrl(`${URL_BASE}/region/${region}?fields=${URL_FIELDS}`);
-    } else {
-      setUrl(`${URL_BASE}/all?fields=${URL_FIELDS}`);
-    }
-  }, [region]);
 
   const updateInput = (input: string) => setInput(input);
 
@@ -41,6 +27,7 @@ export const Homepage = () => {
     setisListOpen(false);
   };
 
+  if(error) return <Errorpage error="Error..." />
 
   return (
     <div className="homepage-container">

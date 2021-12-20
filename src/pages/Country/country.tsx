@@ -5,7 +5,7 @@ import './Country.scss';
 
 import { Errorpage } from '../../components';
 import { Language, Currency } from '../../Interfaces';
-import { getCountry } from '../../utils/useFetch'
+import { getCountryDetails } from '../../utils/fetch'
 
 
 
@@ -15,7 +15,7 @@ export function Country() {
 
     if(!countryId) return;
 
-    const { country, borders, loading, error } = getCountry(countryId);
+    const { country, borders, loading, error } = getCountryDetails(countryId);
 
     function getLanguages(languages: Language[]) {
         return languages.map(language => language.name).join(', ');
