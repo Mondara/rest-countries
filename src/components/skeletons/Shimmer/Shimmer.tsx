@@ -1,12 +1,10 @@
 import React from 'react';
 import './Shimmer.scss';
 
-const Shimmer = () => {
+export const Shimmer = () => {
     return (
         <div className="shimmer-wrapper">
             <div className="shimmer" />
         </div>
     )
 }
-
-export default Shimmer;

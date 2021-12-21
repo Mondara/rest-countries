@@ -27,7 +27,7 @@ export const Homepage = () => {
     setisListOpen(false);
   };
 
-  if(error) return <Errorpage error="Error..." />
+  if (error) return <Errorpage error="Error..." />
 
   return (
     <div className="homepage-container">
@@ -47,7 +47,7 @@ export const Homepage = () => {
 
         <div className="cards-container">
           {loading && [...Array(15).keys()].map((_, indx) => <SkeletonCard key={indx} />)}
-          {filteredCountries && filteredCountries.map((country) => (
+          {!loading && filteredCountries && filteredCountries.map((country) => (
             <Link to={`/Country/${country.name}`} key={country.name}>
               <Card
                 key={country.name}

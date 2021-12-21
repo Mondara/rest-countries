@@ -5,16 +5,16 @@
 
   width: 100%;
   height: 100%;
-  animation: loading 700ms infinite ease-out;
+  animation: loading 1s random(100) + ms infinite ease-out;
 
   .shimmer {
-    width: 20%;
+    width: 15%;
     height: 100%;
 
     background-color: rgba(255, 255, 255, 0.2);
     box-shadow: 0px 0px 30px 30px rgba(255, 255, 255, 0.05);
     
-    transform: skewX(-20deg);
+    transform: skew(-10deg);
   }
 }
 

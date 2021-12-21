@@ -1,11 +1,14 @@
 @import "./variables/variables";
 
+// --- DARK MODE ---
 .theme--dark {
+  // --- HEADER ---
   .header {
     background: $dark-element;
     color: $dark-text;
   }
 
+  // --- HOMEPAGE PAGE---
   .homepage-container main {
     background-color: $dark-bg;
     color: $dark-text;
@@ -29,6 +32,7 @@
     }
   }
 
+  // --- COUNTRY DETAIL PAGE ---
   .page--container {
     background-color: $dark-bg;
     color: $dark-text;
@@ -40,26 +44,36 @@
     }
   }
 
+  // --- ERROR PAGE ---
   .error-page {
     background-color: $dark-bg;
     color: $dark-text;
   }
 
-  .skeleton-card-wrapper {
+  .skeleton {
     background-color: $dark-skeleton-background;
-    .skeleton-card-img,
-    .skeleton-card-text {
+    &.custom,
+    &.text,
+    &.title {
       background-color: $dark-skeleton-element;
     }
   }
+
+  // --- SKELETONS ---
+  .skeleton-card-wrapper {
+    background-color: $dark-element;
+  }
 }
 
+// --- LIGHT MODE THEME ---
 .theme--light {
+  // --- HEADER ---
   .header {
     background: $light-element;
     color: $light-text;
   }
 
+  // --- HOMEPAGE PAGE ---
   .homepage-container main {
     background-color: $light-bg;
     color: $light-text;
@@ -83,6 +97,7 @@
     }
   }
 
+  // --- CARD DETAIL PAGE ---
   .page--container {
     background-color: $light-bg;
     color: $light-text;
@@ -94,16 +109,23 @@
     }
   }
 
+  // --- ERROR PAGE ---
   .error-page {
     background-color: $light-bg;
     color: $light-text;
   }
 
-  .skeleton-card-wrapper {
+  // --- SKELETONS ---
+  .skeleton {
     background-color: $light-skeleton-background;
-    .skeleton-card-img,
-    .skeleton-card-text {
+    &.custom,
+    &.text,
+    &.title {
       background-color: $light-skeleton-element;
     }
+  }
+
+  .skeleton-card-wrapper {
+    background-color: $light-element;
   }
 }

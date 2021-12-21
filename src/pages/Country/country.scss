@@ -7,11 +7,9 @@
   height: 100vh;
 
   padding: 2em;
-  
+
   .btn-goBack {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flex();
     margin-bottom: 2em;
 
     span {
@@ -21,16 +19,14 @@
 }
 
 .country_page--container {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
+  @include flex($justify: flex-start, $align: flex-start);
   gap: 2em;
 
   width: 100%;
-  height: 100%;
+  height: max-content;
 
   .img--container {
-    max-width: 1000px;
+    max-width: 500px;
     width: 50%;
 
     margin-right: 2em;
@@ -42,11 +38,7 @@
 }
 
 .country_page-info--container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-
+  @include flex($justify: space-between, $align: flex-start, $direction: column);
   width: 50%;
   gap: 2em;
 

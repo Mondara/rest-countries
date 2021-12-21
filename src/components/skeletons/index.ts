@@ -1,2 +1,3 @@
 // export * from './SkeletonCountryDetails';
-export * from './SkeletonCard';
+export * from './skeleton-card';
+export * from './skeleton-country';
