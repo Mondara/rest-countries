@@ -2,8 +2,10 @@
 @import '../../styles/mixins/util';
 
 .homepage-container {
-    width: 100%;
+    width: 100vw;
     height: 100vh;
+
+    font-size: $ff-size;
 
     main {
         width: 100%;
@@ -11,10 +13,14 @@
 
         padding: 2em;
         
-
         .user-inputs {
             @include flex($justify: space-between);
             margin-bottom: 2em;
+            gap: 1em;
+
+            @media (max-width: 480px ) {
+                @include flex($align: flex-start, $direction: column);
+            }
         }
     }
 
@@ -31,3 +37,4 @@
         gap: 2em;
     }
 }
+

@@ -13,6 +13,11 @@
   .title-link {
     text-decoration: none;
     color: inherit;
+    @media (max-width: 480px) {
+      .title {
+        font-size: 1em;
+      }      
+    }
   }
 
   .dark-mode-container {

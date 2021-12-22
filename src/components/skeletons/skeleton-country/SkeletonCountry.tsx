@@ -6,7 +6,7 @@ export const SkeletonCountry = () => {
     return (
         <div className="skeleton-country-wrapper">
             <div className="skeleton-country">
-                <Skeleton type="custom" styles={{ width: "50%", maxWidth: "500px" , height: "250px", marginRight: '1em' }} />
+                <Skeleton type="custom" styles={{ width: "100%", height: "400px" }} />
 
                 <div className="skeleton-country-info">
                     <Skeleton type="title" />
