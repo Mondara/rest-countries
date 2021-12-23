@@ -4,18 +4,16 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import './Country.scss';
 
 import { Errorpage, SkeletonCountry } from '../../components';
-import { Language, Currency } from '../../Interfaces';
+import { Language, Currency } from '../../Interfaces/interfaces';
 import { getCountryDetails } from '../../utils/fetch'
 
 
-export function Country() {
+export const Country = () => {
     const { countryId } = useParams();
     const navigate = useNavigate();
-
-    if (!countryId) return;
-
+    
     let { country, borders, loading, error } = getCountryDetails(countryId);
-    loading = true
+    // loading = true
 
     function getLanguages(languages: Language[]) {
         return languages.map(language => language.name).join(', ');

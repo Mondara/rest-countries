@@ -20,7 +20,7 @@
 }
 
 .country_page--container {
-  @include flex($align: center, $direction: column);
+  @include flex($direction: column);
   gap: 2em;
 
   width: 100%;

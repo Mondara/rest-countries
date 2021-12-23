@@ -7,17 +7,7 @@ import "./Header.scss";
 
 
 export const Header = () => {
-  const { theme, setTheme } = useContext(ThemeContext)
-
-  const handleThemeChange = () => {
-    if (theme === 'light') {
-      setTheme('dark');
-    } else {
-      setTheme('light');
-    }
-
-  }
-
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
   return (
     <>
@@ -25,7 +15,7 @@ export const Header = () => {
         <Link to="/" className="title-link">
           <h1 className="title">Where in the world?</h1>
         </Link>
-        <div className="dark-mode-container" onClick={handleThemeChange}>
+        <div className="dark-mode-container" onClick={toggleTheme}>
           <button className="btn-dark-mode">
             <FaMoon className="dark-mode-icon" />
             <p className="dark-mode-label">Dark Mode</p>

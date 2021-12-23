@@ -1,9 +1,13 @@
 import React from "react";
 
-export const initialThemeState = {
-  theme: (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light',
-  setTheme: (theme: string) => null
-};
+interface IThemeContext {
+  theme: string;
+  toggleTheme?: () => void;
+}
 
-const ThemeContext = React.createContext(initialThemeState);
+export const initialThemeState = {
+  theme: (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light'
+}
+
+const ThemeContext = React.createContext<IThemeContext>(initialThemeState);
 export default ThemeContext;

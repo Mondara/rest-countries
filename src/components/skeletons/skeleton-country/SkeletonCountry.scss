@@ -1,5 +1,7 @@
+@import '../../../styles/mixins/util';
+
 .skeleton-country-wrapper {
-  display: flex;
+  @include flex();
 
   .skeleton-country {
     position: relative;

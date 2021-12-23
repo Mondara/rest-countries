@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Country, Border, ResultCountryByName } from '../Interfaces';
+import { Country, Border, ResultCountryByName } from '../Interfaces/interfaces';
 
 const URL_BASE = 'https://restcountries.com/v2';
 const URL_FIELDS = 'name,nativeName,population,capital,region,subregion,flags,currencies,languages,topLevelDomain,borders'
@@ -48,13 +48,12 @@ export const getCountry = (region: string) => {
 }
 
 
-export const getCountryDetails = (countryId: string) => {
+export const getCountryDetails = (countryId: string | undefined) => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
 
     const [country, setCountry] = useState<ResultCountryByName>();
     const [borders, setBorders] = useState<string[]>([]);
-
 
     useEffect(() => {
         fetch(`${URL_BASE}/name/${countryId}?fields=${URL_FIELDS}`)
