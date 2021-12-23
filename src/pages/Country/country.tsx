@@ -11,8 +11,8 @@ import { getCountryDetails } from '../../utils/fetch'
 export const Country = () => {
     const { countryId } = useParams();
     const navigate = useNavigate();
-    
-    let { country, borders, loading, error } = getCountryDetails(countryId);
+
+    const { country, borders, loading, error } = getCountryDetails(countryId);
     // loading = true
 
     function getLanguages(languages: Language[]) {
