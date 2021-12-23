@@ -35,18 +35,18 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [solution URL](https://www.frontendmentor.io/solutions/rest-countries-FnS9dVJMT)
+- Live Site URL: [Live Site](https://rest-contries-mt.netlify.app/)
 
 ## My process
 
 ### Built with\
 
-- HTML & SCSS
+- HTML
 - SCSS - Styles
+- FETCH - API Calls
 - REACT/TypeScript - JS Framework
 - REACT ROUTER - Web Navigation
-- FETCH - API Calls
 
 ### What I learned
 
