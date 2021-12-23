@@ -13,7 +13,6 @@ export const Country = () => {
     const navigate = useNavigate();
 
     const { country, borders, loading, error } = getCountryDetails(countryId);
-    // loading = true
 
     function getLanguages(languages: Language[]) {
         return languages.map(language => language.name).join(', ');
