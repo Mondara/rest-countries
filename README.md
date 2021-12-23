@@ -31,11 +31,11 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![](./design/live/desktop_homepage_dark.png)
 
 ### Links
 
-- Solution URL: [solution URL](https://www.frontendmentor.io/solutions/rest-countries-FnS9dVJMT)
+- Solution URL: [Solution URL](https://www.frontendmentor.io/solutions/rest-countries-FnS9dVJMT)
 - Live Site URL: [Live Site](https://rest-contries-mt.netlify.app/)
 
 ## My process
