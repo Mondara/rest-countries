@@ -8,7 +8,7 @@ import { Card, Dropdown, SearchBar, SkeletonCard, Errorpage } from '../../compon
 export const Homepage = () => {
   const [input, setInput] = useState("");
   const [region, setRegion] = useState("ALL");
-  const [isListOpen, setisListOpen] = useState(false);
+  const [ListOpen, setListOpen] = useState(false);
 
   const regions = ["ALL", "Africa", "Americas", "Asia", "Europe", "Oceania"];
 
@@ -20,11 +20,11 @@ export const Homepage = () => {
 
   const updateInput = (input: string) => setInput(input);
 
-  const toggleOpen = () => setisListOpen((prev: boolean) => !prev);
+  const toggleOpen = () => setListOpen((prev: boolean) => !prev);
 
   const updateRegion = (id: number) => {
     setRegion(regions[id]);
-    setisListOpen(false);
+    setListOpen(false);
   };
 
   if (error) return <Errorpage error="Error..." />
@@ -40,13 +40,13 @@ export const Homepage = () => {
             list={regions}
             selected={region}
             select={updateRegion}
-            open={isListOpen}
+            open={ListOpen}
             toggleOpen={toggleOpen}
           />
         </div>
 
         <div className="cards-container">
-          {loading && [...Array(15).keys()].map((_, indx) => <SkeletonCard key={indx} />)}
+          {loading && Array(Math.floor((window.innerHeight / 300) * (window.innerWidth / 350))).fill(0).map((_, indx) => <SkeletonCard key={indx} />)}
           {!loading && filteredCountries && filteredCountries.map((country) => (
             <Link to={`/Country/${country.name}`} key={country.name}>
               <Card
