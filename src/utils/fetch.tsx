@@ -1,25 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Country, Border, ResultCountryByName } from '../Interfaces/interfaces';
 
 const URL_BASE = 'https://restcountries.com/v2';
 const URL_FIELDS = 'name,nativeName,population,capital,region,subregion,flags,currencies,languages,topLevelDomain,borders'
-
-
-export const useFetch = (url: string) => {
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(false);
-    const [data, setData] = useState<Country[]>([]);
-
-    useEffect(() => {
-        fetch(url)
-            .then(response => response.json())
-            .then((result: Country[]) => setData(result))
-            .catch((err) => console.error(err))
-            .finally(() => setLoading(false))
-    }, [url]);
-
-    return { data, loading, error };
-}
 
 export const getCountry = (region: string) => {
     const [loading, setLoading] = useState(true);
