@@ -50,9 +50,8 @@ Users should be able to:
 - REACT ROUTER - Web Navigation
 
 ### What I learned
-
-I got some practical experience using SCSS, FETCH, and REACT/ROUTER.
-I also learn how to implement a custom skeleton loading elements, and other custom components (eg. search bar, menu).
+I was able to gain practical experience using SCSS, FETCh and React-Router.
+I also learned how to create and implement a custom skeleton loading component, aswell as other custom components including custom search bar and menu.
 
 ## Author
 
