@@ -4,7 +4,7 @@
 
 .page--container {
   width: 100%;
-  height: 100vh;
+  height: 100%;
 
   padding: 2em;
   font-size: $detail-ff-size;
@@ -33,6 +33,8 @@
     img {
       width: 100%;
       height: 100%;
+
+      max-width: 80vw;
     }
   }
 }

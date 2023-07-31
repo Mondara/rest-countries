@@ -46,3 +46,10 @@ export interface BorderNameChace {
 export interface Border {
   name: string;
 }
+
+export interface Cache {
+  [countryId: string]: {
+    data: ResultCountryByName;
+    border: string[];
+  };
+}
