@@ -20,20 +20,20 @@
     }
   }
 
-  .dark-mode-container {
+  .theme-toggle-container {
     @include flex();
 
-    .btn-dark-mode {
+    .btn-theme-toggle {
       @extend %button;
 
-      .dark-mode-icon {
+      .theme-toggle-icon {
         font-size: 1.2em;
         margin-right: 0.8em;
         color: inherit;
       }
 
-      .dark-mode-icon,
-      .dark-mode-label {
+      .theme-toggle-icon,
+      .theme-toggle-label {
         vertical-align: middle;
         display: inline-block;
       }
