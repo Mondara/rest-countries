@@ -3,12 +3,12 @@
 @import "../../styles/extends/resets";
 
 .header {
-  height: 5vh;
+  height: 5%;
   font-size: $ff-size;
 
   @include flex($justify: space-between);
 
-  padding: 3em 2em;
+  padding: 2em;
 
   .title-link {
     text-decoration: none;
